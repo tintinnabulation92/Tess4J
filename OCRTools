@@ -1,0 +1,68 @@
+
+package tess4j.example;
+
+import java.io.File;
+import net.sourceforge.tess4j.ITesseract;
+import net.sourceforge.tess4j.Tesseract;
+import net.sourceforge.tess4j.TesseractException;
+
+/**
+ *
+
+ */
+public class OCRTools {
+    
+    private String imagePath;
+    private String dataPath;
+    private String language;
+    public static File imageFile;
+    //static in order to share the data
+    
+    public static  String ip = "C:\\Users\\pholz\\Desktop\\menu.png"; // change this in order to yield imagePath
+    public static  String dP = "C:\\Users\\pholz\\Desktop\\lastChance\\Tess4J\\tessdata"; // change this in order to yield dataPath
+    public static  String lang = "eng"; // change this in order to change Tess4J OCR language dataset
+                                        // eng traindata - the language code, which follows ISO 639-3 standard.
+    
+    public void setImagePath(String imagePath){ //set an image path enclosed with double // sign
+        this.imagePath = imagePath;
+    }
+    
+     public String getImagePath(){ //return an image path for Tess4J 
+        return imagePath;
+    }
+    
+    public void setDataPath(String dataPath){
+        this.dataPath = dataPath;
+    }
+    
+    public String getDataPath(){
+        return dataPath;
+    }
+    
+    public void setOcrLanguage(String language){
+        this.language = language;
+    }
+    
+    public String getOcrLanguage(){
+        return language;
+    }
+    
+    public static void PerformOCR(){
+        //contains logic for OCR method
+        //TesseractExample tessEngine = new TesseractExample();
+        ITesseract instance = new Tesseract();
+        
+         try {
+		String result = instance.doOCR(imageFile); // przeniesienie kodu z klasy OCR do TessEngine
+		System.out.println(result);
+            } 
+        
+        catch (TesseractException e) 
+        {
+            System.err.println(e.getMessage());
+	}
+    }
+    
+    
+    
+}
