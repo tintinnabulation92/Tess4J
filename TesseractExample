@@ -1,19 +1,6 @@
 /*
  * 
- * COPYRIGHT NOTICE
- * 
- * RADMOR CONFIDENTIAL
- * __________________
- * 
- *  [2016] RADMOR S.A., Hutnicza 3, 81-212, POLAND 
- *  All Rights Reserved.
- * 
- * NOTICE:  All information contained herein is, and remains the property
- * of RADMOR S.A. The intellectual and technical concepts contained herein are
- * proprietary to RADMOR S.A. and are protected by trade secret or copyright
- * law. Dissemination of this information or reproduction of this material
- * is strictly forbidden unless prior written permission is obtained from
- * RADMOR S.A.
+
  * 
  */
 package tess4j.example;
