@@ -1,0 +1,65 @@
+/*
+ * 
+ * COPYRIGHT NOTICE
+ * 
+ * RADMOR CONFIDENTIAL
+ * __________________
+ * 
+ *  [2016] RADMOR S.A., Hutnicza 3, 81-212, POLAND 
+ *  All Rights Reserved.
+ * 
+ * NOTICE:  All information contained herein is, and remains the property
+ * of RADMOR S.A. The intellectual and technical concepts contained herein are
+ * proprietary to RADMOR S.A. and are protected by trade secret or copyright
+ * law. Dissemination of this information or reproduction of this material
+ * is strictly forbidden unless prior written permission is obtained from
+ * RADMOR S.A.
+ * 
+ */
+package tess4j.example;
+
+import java.io.File;
+import net.sourceforge.tess4j.ITesseract;
+import net.sourceforge.tess4j.Tesseract;
+import net.sourceforge.tess4j.TesseractException;
+import net.sourceforge.tess4j.util.LoadLibs;
+
+/*
+
+
+*/
+/**
+ *
+ * @author pholz
+ */
+public class TesseractExample {
+    public static void main(String[] args) 
+    {
+        //System.out.print("sdasd");
+        //"C:\\Users\\pholz\\Desktop\\menu.png"
+        OCRTools tools = new OCRTools(); //create OCR tools object
+        //tools.setImagePath("C:\\Users\\pholz\\Desktop\\menu.png");
+        tools.setImagePath("C:\\Users\\pholz\\Desktop\\menu.png");
+        File imageFile = new File(tools.getImagePath());
+        ITesseract instance = new Tesseract();
+        //instance.setDatapath(LoadLibs.extractTessResources("tessdata").getParent());
+        //instance.setDatapath("C:\\Program Files (x86)\\Tesseract-OCR\\tessdata");
+        tools.setDataPath("C:\\Users\\pholz\\Desktop\\lastChance\\Tess4J\\tessdata");
+        
+        instance.setDatapath(tools.getDataPath());
+        
+        //instance.setLanguage("pol"); //ustawienia jezyka
+        //C:\Users\pholz\Desktop\lastChance\Tess4J\tessdata
+        //C:\Program Files (x86)\Tesseract-OCR\tessdata
+        //potrzebny jest jedynie plik eng.tessdata
+        try {
+		String result = instance.doOCR(imageFile);
+		System.out.println(result);
+            } 
+        
+        catch (TesseractException e) 
+        {
+            System.err.println(e.getMessage());
+	}
+    }
+}
