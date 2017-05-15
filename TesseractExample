@@ -17,7 +17,7 @@ import net.sourceforge.tess4j.util.LoadLibs;
 */
 /**
  *
- * @author pholz
+
  */
 public class TesseractExample {
     public static void main(String[] args) 
